@@ -65,7 +65,7 @@ This led to:
 - ❌ Inconsistent interpretation of severity levels
 - ❌ **Inaccurate decision-making** at the Exco level
 
-**Example:** One PM might classify a UI alignment issue as critical, while another wouldn't report it at all.
+**Example:** One PM might classify a UI defect as a legit defect, while another wouldn't report it at all.
 
 ### Metrics That Created More Questions Than Answers
 
@@ -90,7 +90,13 @@ When comparing VSIT defect density to SIT/UAT defect density in Delivery Review 
 **We were essentially guessing:**
 - "This project has high VSIT defects and low SIT/UAT defects... probably good testing?"
 - "This project has low VSIT defects and high SIT/UAT defects... probably missed in testing?"
+- "But wait, what if they just didn't write enough test cases?"
+- "Or what if the code quality is actually poor?"
 - **But we couldn't be sure.**
+
+**The root problem:** We couldn't distinguish between:
+1. **Testing issues** (insufficient test coverage)
+2. **Development issues** (poor code quality despite adequate testing)
 
 **For Exco making critical decisions, "probably" wasn't good enough.**
 
@@ -212,10 +218,6 @@ DER = (SIT/UAT Defects) / (VSIT Defects + SIT/UAT Defects) × 100%
 
 > "Instead of saying 'this project **probably** has a testing issue,' we can now say 'this project **definitively** has a 65% defect escape rate, indicating a testing effectiveness problem.' And if both VSIT and SIT/UAT numbers are high but DER is medium, we know it's a **development quality issue**, not testing."
 
-**The analogy I used:**
-
-"Would you rather hear 'there might be a leak in the plumbing' or 'there's definitely a leak, it's in the second-floor bathroom, and it's caused by X'?"
-
 **Result:** Leadership immediately understood the value of certainty over guesswork.
 
 ---
@@ -297,23 +299,25 @@ We revised to **intervention-focused** thresholds:
 
 ### Impact on Delivery Review Meetings
 
-#### Before DER Implementation
+#### Before DER + Test Case Density Implementation
 
 **Typical Exco conversation:**
 - "Project X has high VSIT defects..."
 - "Is that because testing is good or development is poor?"
 - "We think it's probably good testing, but we can't be certain"
 - "Should we intervene?"
-- "We're not sure..."
+- "We're not sure what kind of intervention..."
 
-#### After DER Implementation
+#### After Implementation
 
 **Now in Exco meetings:**
-- "Project X has a DER of 28% (Green) - testing is catching defects early ✅"
-- "Project Y has a DER of 67% (Red) - clear testing effectiveness issue 🔴"
-- "Project Z has high defects overall but DER of 45% (Amber) - development quality needs focus, testing is adequate ⚠️"
+- "Project X has DER of 28% with 8.5 test case density (Green) - testing catching defects early, development quality solid ✅"
+- "Project Y has DER of 67% with 8.2 test case density (Red) - clear **development quality issue** 🔴"
+  - **Action:** Assign senior developer for code review support
+- "Project Z has DER of 65% with 5.0 test case density (Red) - clear **test coverage issue** 🔴"
+  - **Action:** Extend VSIT timeline, increase test case development
 
-**Clear, data-driven decisions with certainty.**
+**Clear, data-driven decisions with precise interventions.**
 
 ### The Results I'm Proud Of
 
@@ -342,8 +346,9 @@ We revised to **intervention-focused** thresholds:
 
 **For Exco/Project Directors:**
 - No more guessing about quality issues
-- Clear identification of root causes (testing vs development)
+- **Precise root cause identification:** testing vs development
 - Objective thresholds for intervention (Green/Amber/Red)
+- **Targeted interventions** based on diagnosis
 - Confidence in quality assessments
 
 ### 📋 Sample Dashboard for Delivery Review Meeting
@@ -498,10 +503,10 @@ Team A had been classifying all UI issues as "Low" severity because "users can s
 **Before:** Quality reporting seen as administrative burden  
 **After:** Quality metrics seen as decision-making tool
 
-**PMs now use DER proactively:**
-- "Our DER is trending up—we need to review our VSIT approach"
-- "We maintained green status—our testing strategy is working"
-- "High defect count but low DER—we need development support, not testing"
+**PMs now use DER + Test Case Density proactively:**
+- "Our DER is trending up and test case density is adequate—we need to review our development practices"
+- "Our DER is high but test case density is only 5 per MD—we need to extend VSIT and add more test cases"
+- "We maintained green status with 8+ test case density—our comprehensive testing strategy is working"
 
 ---
 
@@ -666,8 +671,8 @@ I had:
 |------|---------|-------|
 | **JIRA** | Defect tracking, test case management | Primary data source |
 | **JQL** | Custom queries for automated dashboards | Eliminates manual data requests |
-| **Excel** | Initial data exploration, distribution visualization | Bell curve creation | Statistical analysis, DER calculation at scale | 40-project benchmark analysis |
-| **Confluence** | Exco presentations | Communicating insights to leadership |
+| **Excel** | Initial data exploration, distribution visualization | Bell curve creation |Statistical analysis, DER calculation at scale | 40-project benchmark analysis |
+| **PowerPoint** | Exco presentations | Communicating insights to leadership |
 
 ### The Framework I Built
 
