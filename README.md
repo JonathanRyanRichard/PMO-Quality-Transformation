@@ -26,7 +26,10 @@ As a junior PMO Executive (<1 year experience), I transformed quality reporting 
 Quality reporting for Delivery Review Meetings (Exco + Project Directors) was unreliable:
 - PMO provided defect classifications, but PMs weren't 100% clear on what they meant
 - Different PMs reported different numbers for similar situations
-- Existing metrics (Test Case Density, VSIT/SIT Defect Density) required guesswork
+- Existing metrics existed but couldn't diagnose root causes:
+  - **Test Case Density (TCD):** 7 test cases per MD standard - told us IF testing existed
+  - **VSIT/SIT Defect Density:** Told us defect counts per phase
+  - **Missing piece:** Couldn't tell if test cases were EFFECTIVE or if issues were testing vs development
 - When comparing VSIT vs SIT/UAT defects: "Is this a testing issue or development issue? We think... but we can't be sure"
 - Manual data collection via email was time-consuming
 - Exco couldn't make confident quality decisions based on "probably" and "we think"
@@ -44,10 +47,15 @@ Quality reporting for Delivery Review Meetings (Exco + Project Directors) was un
 - 90% project team adoption achieved
 
 **Phase 2: Defect Escape Rate Introduction**
-- Implemented DER as the primary quality diagnostic tool
+- **I introduced DER** as the missing diagnostic piece
 - Formula: `DER = (SIT/UAT Defects) / (VSIT Defects + SIT/UAT Defects) × 100%`
-- **Key value:** Eliminated guesswork—can now definitively identify if issues are testing or development related
-- Sold to Exco: "Instead of guessing, we can now be certain about quality issues and their root causes"
+- **Used alongside existing metrics** (Test Case Density, VSIT/SIT defect counts)
+- **Diagnostic framework:**
+  - High DER + High test cases (≥7/MD) = **Development quality issue**
+  - High DER + Low test cases (<7/MD) = **Test coverage issue**
+  - Low DER + High test cases = Good practice
+- **Key value:** Eliminated guesswork—DER shows what % escaped, combined with existing metrics this pinpoints root cause
+- Sold to Exco: "We already collect the data—test cases, VSIT defects, SIT/UAT defects. DER calculates escape rate from that data. Together they tell us whether issues are testing or development."
 
 **Phase 3: Data-Driven Benchmarking**
 - Analyzed 40 historical projects to establish baselines
@@ -131,13 +139,15 @@ The full document includes:
 
 ## 📫 Contact & Portfolio
 
-This project is part of my professional portfolio as a PMO Executive specializing in quality transformation, process improvement, and data-driven decision making.
+This project demonstrates how a junior PMO professional can drive significant organizational change through data-driven insights, stakeholder management, and focus on executive decision-making needs.
+
+**Key takeaway:** Credibility comes from delivering value and bringing data to conversations, not from years of experience.
 
 **Connect with me:**
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](Add-your-LinkedIn-URL-here)
-[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:your.email@example.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=for-the-badge&logo=About.me&logoColor=white)](Add-your-portfolio-URL-here)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jonathan-ryan-richard/)
+[![Email](https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white)](mailto:jonathanryanrichard07@gmail.com)
+
 
 ---
 
